@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Login page</title>
+    </h:head>
+    <h:body>
+
+        <ui:composition template="/template/common/commonLayout.xhtml">
+
+            <ui:define name="content">
+                <h:form id="formLogin">
+                    <p:growl id="messages" showDetail="true" life="2000"/>
+
+                    <p:panel id="cst2" header="Login Info" style="align-content: center; margin-top: 5%; margin-bottom:20px; width: 30%; margin-left: 35%; margin-right: 35%;">
+
+                        <h:outputText value="Pravno lice" /><br />
+                        
+                    </p:panel>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>

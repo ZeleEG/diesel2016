@@ -8,7 +8,7 @@
     <artifactId>pulsiraj</artifactId>
     <packaging>war</packaging>
     <version>1.0</version>
-    <name>diesel</name>
+    <name>pulsiraj</name>
     <url>http://maven.apache.org</url>
 	
     <repositories>

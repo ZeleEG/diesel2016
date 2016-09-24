@@ -28,7 +28,71 @@ public class User implements Serializable {
     @Column(name = "u_id")
     private int u_id;
     @Column(name = "username")
-    private String username;
-    
-    
+    private String userName;
+    @Column(name = "password_hash")
+    private byte[] passwordHash;
+    @Column(name = "random_salt")
+    private byte[] salt;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "approval_status")
+    private boolean approvalStatus;
+    @Column(name = "user_type")
+    private String userType;
+
+    public int getU_id() {
+        return u_id;
+    }
+
+    public void setU_id(int u_id) {
+        this.u_id = u_id;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public byte[] getPasswordHash() {
+        return passwordHash;
+    }
+
+    public void setPasswordHash(byte[] passwordHash) {
+        this.passwordHash = passwordHash;
+    }
+
+    public byte[] getSalt() {
+        return salt;
+    }
+
+    public void setSalt(byte[] salt) {
+        this.salt = salt;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public boolean isApprovalStatus() {
+        return approvalStatus;
+    }
+
+    public void setApprovalStatus(boolean approvalStatus) {
+        this.approvalStatus = approvalStatus;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }   
 }
