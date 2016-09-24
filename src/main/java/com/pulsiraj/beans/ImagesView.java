@@ -5,10 +5,12 @@
  */
 package com.pulsiraj.beans;
  
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 /**
  *
@@ -24,7 +26,7 @@ public class ImagesView {
     public void init() {
         images = new ArrayList<>();
         for (int i = 1; i <= 5; i++) {
-            images.add("Slika" + i + ".jpg");
+            images.add("Image" + i + ".jpg");
         }
     }
 

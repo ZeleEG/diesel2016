@@ -61,10 +61,10 @@
                         <h:outputText value="Radi do" />
                         <h:outputText value="" />
                     </p:panelGrid>
-                    <p:graphicImage height="100%" width="100%" name="img\Cena.jpg" />
-                    <p:galleria value="#{imagesView.images}" var="image" panelWidth="500" panelHeight="300">
-                        <p:graphicImage name="img\pravnaLica\#{image}"/>
-                    </p:galleria>
+                    <p:graphicImage height="100%" width="100%" name="img/Cena.jpg" />
+                    <p:contentFlow style="height: 100%; width: 100%" value="#{imagesView.images}" var="image">
+                        <p:graphicImage name="img/pravnaLica/#{image}" styleClass="content" />
+                    </p:contentFlow>
                 </p:panelGrid>
             </ui:define>
 
