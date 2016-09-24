@@ -60,7 +60,7 @@
                         </p:tab>
 
                         <p:tab id="tabLocation" title="Lokacija">
-                            <p:panel header="Informacije o adresi">
+                            <p:panel header="Informacije o lokaciji">
                                 <p:messages />
                                 <h:panelGrid columns="2" columnClasses="label, value">
                                     <p:outputLabel for="selCity" value="Grouping: " />
@@ -93,7 +93,7 @@
                                     </p:selectOneMenu>
 
                                     <h:outputText value="Adresa: " />
-                                    <p:inputText value="#{userWizard.user.info}" required="true" requiredMessage="Molimo Vas da uneste Vašu adresu!"/>
+                                    <p:inputText value="#{regCont.newLegalEntity.address}" required="true" requiredMessage="Molimo Vas da uneste Vašu adresu!"/>
                                 </h:panelGrid>
                             </p:panel>
                         </p:tab>
@@ -101,17 +101,29 @@
                         <p:tab id="tabSocial" title="Društvene mreže">
                             <p:panel header="Informacije o društvenim mrežama">
                                 <h:panelGrid columns="2" columnClasses="label, value">
+                                    <p:outputLabel for="timeOpen" value="Početak radnog vremena: " />
+                                    <p:calendar id="timeOpen" value="#{regCont.newLegalEntity.openTime}" pattern="HH:mm" timeOnly="true" required='true' requiredMessage='Molimo Vas da unesete vreme kada počinje Vaše radno vreme!'  />
+
+                                    <p:outputLabel for="timeClose" value="Kraj radnog vremena: " />
+                                    <p:calendar id="timeClose" value="#{regCont.newLegalEntity.closeTime}" pattern="HH:mm" timeOnly="true"  required="true" requiredMessage="Molimo Vas da unesete vreme kada završava Vaše radno vreme!"  />
+                                </h:panelGrid>
+                            </p:panel>
+                        </p:tab>
+
+                        <p:tab id="tabWorkHours" title="Društvene mreže">
+                            <p:panel header="Informacije o društvenim mrežama">
+                                <h:panelGrid columns="2" columnClasses="label, value">
                                     <h:outputText value="Facebook stranica: " />
-                                    <h:outputText value="#{userWizard.user.firstname}" styleClass="outputLabel"/>
+                                    <p:inputText value="#{regCont.newLegalEntity.facebookProfile}" />
 
-                                    <h:outputText value="Lastname: " />
-                                    <h:outputText value="#{userWizard.user.lastname}" styleClass="outputLabel"/>
+                                    <h:outputText value="Instagram stranica: " />
+                                    <p:inputText value="#{regCont.newLegalEntity.instagramProfile}" />
 
-                                    <h:outputText value="Age: " />
-                                    <h:outputText value="#{userWizard.user.age}" styleClass="outputLabel"/>
+                                    <h:outputText value="Veb stranica: " />
+                                    <p:inputText value="#{regCont.newLegalEntity.website}" />
                                 </h:panelGrid>
 
-                                <p:commandButton value="Submit" actionListener="#{userWizard.save}" update="growl" process="@this"/>
+                                <p:commandButton value="Registruj" validateClient="true" actionListener="#{regCont.registerLegal}" update="growlRegisterLegal"/>
                             </p:panel>
                         </p:tab>
                     </p:wizard>

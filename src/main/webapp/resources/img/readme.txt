@@ -1,0 +1,1 @@
+Resource biblioteka za slike
