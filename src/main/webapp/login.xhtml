@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Login page</title>
+    </h:head>
+    <h:body>
+
+        <ui:composition template="/template/common/commonLayout.xhtml">
+
+            <ui:define name="content">
+                <h:form id="formLogin">
+                    <p:growl id="messages" showDetail="true" life="2000"/>
+
+                    <p:panel id="cst2" header="Login Info" style="align-content: center; margin-top: 5%; margin-bottom:20px; width: 30%; margin-left: 35%; margin-right: 35%;">
+
+                        <h:outputText value="Username" /><br />
+                        <p:inputText id="username" value="#{loginCont.username}" required="true" requiredMessage="Username is required!"/>
+                        <h:message for="username"></h:message>
+                        <br /><br />
+
+                        <h:outputText value="Password" /><br />
+                        <p:password id="password" value="#{loginCont.password}" required="true" requiredMessage="Password is required!"/>
+                        <h:message for="password"></h:message>
+                        <br></br><br></br>
+
+                        <p:commandButton action="#{loginCont.validateUser}" validateClient="true" update="@form :formLogin:messages" icon="ui-icon-circle-check"
+                                         value="Login"></p:commandButton>
+                    </p:panel>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>

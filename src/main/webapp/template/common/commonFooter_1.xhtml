@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <h:form id="formFooter" style='border-style: hidden !important; margin: 0 auto'>
+                <p:panelGrid id="gridFooterUnregistered" columns="3" layout="grid" rendered="#{loginCont.checkIfLoggedIn() == false}">
+                    <h:commandLink value="Home" action="#{frontCont.dispatchRequest('index')}" />
+                    <h:commandLink value="Login" action="#{frontCont.dispatchRequest('login')}" />
+                    <h:commandLink value="Register" action="#{frontCont.dispatchRequest('register')}" />
+                </p:panelGrid>
+                <p:panelGrid id="gridFooterRegistered" columns="4" layout="grid" rendered="#{loginCont.checkIfLoggedIn() == true}">
+                    <h:commandLink value="Home" action="#{frontCont.dispatchRequest('index')}"  />
+                    <h:commandLink value="User page" action="#{frontCont.dispatchRequest('success')}" />
+                    <h:commandLink value="Change password" action="#{frontCont.dispatchRequest('changepass')}" />
+                    <h:commandLink value="Logout" action="#{frontCont.dispatchRequest('logout')}" />
+                </p:panelGrid>
+
+                <br />
+                <h:outputText value="Copyright &copy; 2016 Dejan Zele Pejchev" style='text-align: center;' />
+            </h:form>
+        </ui:composition>
+    </h:body>
+</html>
