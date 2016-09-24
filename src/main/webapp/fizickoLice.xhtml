@@ -6,16 +6,40 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Fizicko lice</title>
+        <title>Fizičko lice</title>
     </h:head>
     <h:body>
 
         <ui:composition template="/template/common/commonLayout.xhtml">
-
             <ui:define name="content">
-                <h:outputText value="Fizicko lice" />
-            </ui:define>
+                <p:panelGrid columns="2">
+                <h:outputText style="font-weight: bold" value="Fizičko lice" />
+                <h:outputText style="font-weight: bold" value="Istorija" />
+                <p:panelGrid columns="2">
+                    <f:facet name="slika">
+                        <p:graphicImage name="" />
+                    </f:facet>
 
+                    <h:outputText value="Ime" />
+                    <h:outputText value="" />
+
+                    <h:outputText value="Prezime" />
+                    <h:outputText value="" />
+
+                    <h:outputText value="Pol" />
+                    <h:outputText value="" />
+
+                    <h:outputText value="Datum Rođenja" />
+                    <h:outputText value="" />
+
+                    <h:outputText value="Grad" />
+                    <h:outputText value="" />
+
+                    <h:outputText value="Mobilni telefon" />
+                    <h:outputText value="" />
+                </p:panelGrid>
+                </p:panelGrid>
+            </ui:define>
         </ui:composition>
 
     </h:body>

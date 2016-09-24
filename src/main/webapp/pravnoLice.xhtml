@@ -6,22 +6,63 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Login page</title>
+        <title>Pravno lice</title>
     </h:head>
     <h:body>
 
         <ui:composition template="/template/common/commonLayout.xhtml">
 
             <ui:define name="content">
-                <h:form id="formLogin">
-                    <p:growl id="messages" showDetail="true" life="2000"/>
+                <p:panelGrid columns="3">
+                <h:outputText style="font-weight: bold;" value="Pravno lice" />
+                <h:outputText style="font-weight: bold;" value="Cena" />
+                <h:outputText style="font-weight: bold;" value="Slike" />
+                
+                    <p:panelGrid columns="2">
+                        <f:facet name="slika">
+                            <p:graphicImage name="" />
+                        </f:facet>
 
-                    <p:panel id="cst2" header="Login Info" style="align-content: center; margin-top: 5%; margin-bottom:20px; width: 30%; margin-left: 35%; margin-right: 35%;">
+                        <h:outputText value="Ime i prezime" />
+                        <h:outputText value="" />
 
-                        <h:outputText value="Pravno lice" /><br />
-                        
-                    </p:panel>
-                </h:form>
+                        <h:outputText value="Adresa" />
+                        <h:outputText value="" />
+
+                        <h:outputText value="Opstina" />
+                        <h:outputText value="" />
+
+                        <h:outputText value="Grad" />
+                        <h:outputText value="" />
+
+                        <h:outputText value="Stablni telefon 1" />
+                        <h:outputText value="" />
+
+                        <h:outputText value="Stablni telefon 2" />
+                        <h:outputText value="" />
+
+                        <h:outputText value="Mobilni telefon 1" />
+                        <h:outputText value="" />
+
+                        <h:outputText value="Mobilni telefon 2" />
+                        <h:outputText value="" />
+
+                        <h:outputText value="Sajt" />
+                        <h:outputText value="" />
+
+                        <h:outputText value="Facebook" />
+                        <h:outputText value="" />
+
+                        <h:outputText value="Instagram" />
+                        <h:outputText value="" />
+
+                        <h:outputText value="Radi od" />
+                        <h:outputText value="" />
+
+                        <h:outputText value="Radi do" />
+                        <h:outputText value="" />
+                    </p:panelGrid>
+                </p:panelGrid>
             </ui:define>
 
         </ui:composition>
