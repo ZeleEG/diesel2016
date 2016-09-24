@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     >
     <h:head>
         <h:outputStylesheet name="css/styles.css" /> 
@@ -14,6 +15,14 @@
         <ui:composition template="/template/common/commonLayout.xhtml">
 
             <ui:define name="content">
+                <p:panelGrid columns="2" style="max-height: 30%; max-width: 30%" columnClasses="ui-grid-col-6,ui-grid-col-6">
+                    
+                    <p:graphicImage name="img\Akitv.jpg" />
+                    <p:graphicImage name="img\Ekipa.jpg" />
+                    <p:graphicImage name="img\Zabava.jpg" />
+                    <p:graphicImage name="img\relax.png" />
+
+                </p:panelGrid>   
             </ui:define>
 
         </ui:composition>
