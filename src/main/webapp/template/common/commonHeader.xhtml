@@ -8,7 +8,16 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <body>
         <ui:composition>
-                <h:outputText value='Letnje Olimpijske Igre 2016' style='font-size: 20pt; font-weight: bold;' />
+            <h:form id = "formHeader">
+                <!-- <h:outputText value='Letnje Olimpijske Igre 2016' style='font-size: 20pt; font-weight: bold;' /> -->
+                <p:menubar>
+                    <p:menuitem value="Prijava " action="#Login" />
+                    <p:submenu label="Registracija ">
+                        <p:menuitem value="Pravno lice" action="#PL"/>
+                        <p:menuitem value="Fizičo lice" action="#FL"/>
+                    </p:submenu>
+                </p:menubar>
+            </h:form>
         </ui:composition>
     </body>
 </html>

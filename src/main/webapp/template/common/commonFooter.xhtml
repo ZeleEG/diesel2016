@@ -10,10 +10,9 @@
     <h:body>
         <ui:composition>
             <h:form id="formFooter" style='border-style: hidden !important; margin: 0 auto'>
+                <!--
                 <p:panelGrid id="gridFooterUnregistered" columns="3" layout="grid" rendered="#{loginCont.checkIfLoggedIn() == false}">
                     <h:commandLink value="Home" action="#{frontCont.dispatchRequest('index')}" />
-                    <h:commandLink value="Login" action="#{frontCont.dispatchRequest('login')}" />
-                    <h:commandLink value="Register" action="#{frontCont.dispatchRequest('register')}" />
                 </p:panelGrid>
                 <p:panelGrid id="gridFooterRegistered" columns="4" layout="grid" rendered="#{loginCont.checkIfLoggedIn() == true}">
                     <h:commandLink value="Home" action="#{frontCont.dispatchRequest('index')}"  />
@@ -21,9 +20,15 @@
                     <h:commandLink value="Change password" action="#{frontCont.dispatchRequest('changepass')}" />
                     <h:commandLink value="Logout" action="#{frontCont.dispatchRequest('logout')}" />
                 </p:panelGrid>
-
-                <br />
-                <h:outputText value="Copyright &copy; 2016 Dejan Zele Pejchev" style='text-align: center;' />
+                -->
+                <p:menubar>
+                    <p:menuitem value="Početna" action="#Home" />
+                    <p:menuitem value="O nama" action="#About" />
+                    <p:menuitem value="Kontakt" action="#Contact" />
+                    <p:menuitem value="Facebook" action="#FB" />
+                    <p:menuitem value="Instagram" action="#Insta" />
+                    <p:menuitem value="YouTube" action="#YT" />
+                </p:menubar>    
             </h:form>
         </ui:composition>
     </h:body>
