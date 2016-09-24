@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Register page</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/template/common/commonLayout.xhtml">
+            <ui:define name="content">
+                <h:form id="formRegister">
+                    <p:growl id="growlRegisterLegal" globalOnly="true" showDetail="true" life="2000" />
+
+                    <p:wizard widgetVar="wizLegal" flowListener="#{regCont.legalOnFlowProcess}">
+                        <p:tab id="TabUser" title="Nalog">
+                            <p:panel header="Informacije o nalogu">
+                                <p:messages />
+                                <h:panelGrid columns="2" columnClasses="label, value">
+                                    <h:outputText value="Username: " />
+                                    <p:inputText id="uname" value="#{regCont.newUser.userName}" required="true" requiredMessage="Molimo Vas da uneste Vaše korisničko ime!" />
+
+                                    <h:outputText value="Password: " />
+                                    <p:password id="psw1" value="#{regCont.password}" required="true" feedback="true" requiredMessage="Molimo Vas da unesete Vašu šifru!" />
+
+                                    <h:outputText value="Confirm password: " />
+                                    <p:password id="psw2" value="#{regCont.passwordConfirm}" required="true" requiredMessage="Molimo Vas da potvrdite Vašu šifru!" />
+
+                                    <h:outputText value="E-mail " />
+                                    <p:inputText id="email" value="#{regCont.newUser.email}" required="true" requiredMessage="Molimo Vas da uneste Vaš e-mail!" validatorMessage="Uneli ste neispravan e-mail!" >
+                                        <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />       
+                                    </p:inputText>
+                                </h:panelGrid>
+                            </p:panel>
+                        </p:tab>
+
+                        <p:tab id="tabLegal" title="Pravno lice">
+                            <p:panel header="Informacije o pravnom licu">
+                                <p:messages />
+                                <h:panelGrid columns="2" columnClasses="label, value">
+                                    <h:outputText value="Naziv: " />
+                                    <p:inputText value="#{regCont.newLegalEntity.name}" />
+
+                                    <h:outputText value="Fiksni telefon: " />
+                                    <p:inputText value="#{regCont.newLegalEntity.landPhone1}" />
+
+                                    <h:outputText value="Fiksni telefon: " />
+                                    <p:inputText value="#{regCont.newLegalEntity.landPhone2}" />
+
+                                    <h:outputText value="Mobilni telefon: " />
+                                    <p:inputText value="#{regCont.newLegalEntity.mobilePhone1}" />
+
+                                    <h:outputText value="Mobilni telefon " />
+                                    <p:inputText value="#{regCont.newLegalEntity.mobilePhone2}" />
+
+                                </h:panelGrid>
+                            </p:panel>
+                        </p:tab>
+
+                        <p:tab id="tabLocation" title="Lokacija">
+                            <p:panel header="Informacije o adresi">
+                                <p:messages />
+                                <h:panelGrid columns="2" columnClasses="label, value">
+                                    <p:outputLabel for="selCity" value="Grouping: " />
+                                    <p:selectOneMenu var='c' id="selCity" value="#{regCont.newPhysicalEntity.city}" converter="cityConverter">
+                                        <f:selectItems value="#{cityCont.cityList}" />
+
+                                        <p:column>
+                                            <h:outputText value="#{c.name}" />
+                                        </p:column>
+                                    </p:selectOneMenu>
+
+                                    <p:outputLabel for="selMunicipality" value="Grouping: " />
+                                    <p:selectOneMenu var='m' id="selMunicipality" value="#{regCont.newPhysicalEntity.city}" 
+                                                     required="true" requiredMessage="Molimo Vas da izaberete grad!" converter="cityConverter">
+                                        <f:selectItems value="#{municipalityCont.municipalityList}" />
+
+                                        <p:column>
+                                            <h:outputText value="#{m.name}" />
+                                        </p:column>
+                                    </p:selectOneMenu>
+
+                                    <p:outputLabel for="selMunicipality" value="Grouping: " />
+                                    <p:selectOneMenu var='m' id="selMunicipality" value="#{regCont.newLegalEntity.city}" 
+                                                     required="true" requiredMessage="Molimo Vas da izaberete opštinu!" converter="cityConverter">
+                                        <f:selectItems value="#{municipalityCont.municipalityList}" />
+
+                                        <p:column>
+                                            <h:outputText value="#{m.name}" />
+                                        </p:column>
+                                    </p:selectOneMenu>
+
+                                    <h:outputText value="Adresa: " />
+                                    <p:inputText value="#{userWizard.user.info}" required="true" requiredMessage="Molimo Vas da uneste Vašu adresu!"/>
+                                </h:panelGrid>
+                            </p:panel>
+                        </p:tab>
+
+                        <p:tab id="tabSocial" title="Društvene mreže">
+                            <p:panel header="Informacije o društvenim mrežama">
+                                <h:panelGrid columns="2" columnClasses="label, value">
+                                    <h:outputText value="Facebook stranica: " />
+                                    <h:outputText value="#{userWizard.user.firstname}" styleClass="outputLabel"/>
+
+                                    <h:outputText value="Lastname: " />
+                                    <h:outputText value="#{userWizard.user.lastname}" styleClass="outputLabel"/>
+
+                                    <h:outputText value="Age: " />
+                                    <h:outputText value="#{userWizard.user.age}" styleClass="outputLabel"/>
+                                </h:panelGrid>
+
+                                <p:commandButton value="Submit" actionListener="#{userWizard.save}" update="growl" process="@this"/>
+                            </p:panel>
+                        </p:tab>
+                    </p:wizard>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

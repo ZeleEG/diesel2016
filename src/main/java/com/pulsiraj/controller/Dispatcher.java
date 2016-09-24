@@ -47,13 +47,18 @@ public class Dispatcher {
                 case "index":
                     context.redirect("index.xhtml");
                     break;
-                case "register":
+                case "registrujfizicko":
                     if (userType.equals("unregisteredUser")) {
+                        context.redirect("registrujFizicko.xhtml");
+                        break;
+                    }
+                case "registrujpravno":
+                    if (userType.equals("unregisteredUser") && request.equalsIgnoreCase("registrujpravno")) {
                         context.redirect("register.xhtml");
                         break;
                     }
                 case "login":
-                    if (!request.equals("register") && userType.equals("unregisteredUser")) {
+                    if (!request.equals("registrujpravno") && !request.equals("registrujfizicko") && userType.equals("unregisteredUser")) {
                         context.redirect("login.xhtml");
                         break;
                     }

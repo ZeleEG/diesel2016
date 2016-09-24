@@ -94,5 +94,32 @@ public class User implements Serializable {
 
     public void setUserType(String userType) {
         this.userType = userType;
-    }   
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 67 * hash + this.u_id;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final User other = (User) obj;
+        if (this.u_id != other.u_id) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 }

@@ -16,6 +16,8 @@
  */
 package com.pulsiraj.controller;
 
+import com.pulsiraj.beans.LegalEntity;
+import com.pulsiraj.beans.PhysicalEntity;
 import com.pulsiraj.beans.User;
 import com.pulsiraj.security.Passwords;
 import java.io.Serializable;
@@ -37,7 +39,10 @@ public class RegistrationController implements Serializable {
 
     @ManagedProperty(value = "#{user}")
     private User newUser;
-
+    @ManagedProperty(value = "#{legalEntity}")
+    private LegalEntity newLegalEntity;
+    @ManagedProperty(value = "#{physicalEntity}")
+    private PhysicalEntity newPhysicalEntity;
     private String password;
     private String passwordConfirm;
 
@@ -54,6 +59,22 @@ public class RegistrationController implements Serializable {
 
     public void setNewUser(User newUser) {
         this.newUser = newUser;
+    }
+
+    public LegalEntity getNewLegalEntity() {
+        return newLegalEntity;
+    }
+
+    public void setNewLegalEntity(LegalEntity newLegalEntity) {
+        this.newLegalEntity = newLegalEntity;
+    }
+
+    public PhysicalEntity getNewPhysicalEntity() {
+        return newPhysicalEntity;
+    }
+
+    public void setNewPhysicalEntity(PhysicalEntity newPhysicalEntity) {
+        this.newPhysicalEntity = newPhysicalEntity;
     }
 
     public String getPassword() {

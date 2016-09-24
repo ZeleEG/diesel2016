@@ -30,6 +30,7 @@ public class UserDAO extends GenericDAOImpl<User>{
             String hql = "FROM User U WHERE U.userName = '" + username + "'";
             Query query = session.createQuery(hql);
             results = query.list();
+            session.close();
         }
         return results == null || results.isEmpty() ? null : (User)results.get(0);
     }    

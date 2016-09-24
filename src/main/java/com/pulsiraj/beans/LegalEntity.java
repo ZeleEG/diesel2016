@@ -5,10 +5,16 @@
  */
 package com.pulsiraj.beans;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Time;
+import java.util.Objects;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.event.PhaseId;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -17,6 +23,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 
 /**
  *
@@ -172,6 +180,47 @@ public class LegalEntity implements Serializable {
         this.closeTime = closeTime;
     }
 
-    
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 41 * hash + Objects.hashCode(this.user);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        if (user == null) {
+            return false;
+        }
+        final LegalEntity other = (LegalEntity) obj;
+        
+        return user.equals(other.user);
+    }
+
+    public StreamedContent getImage() throws IOException {
+        FacesContext context = FacesContext.getCurrentInstance();
+        String countryImageFolder
+                = context.getExternalContext().getInitParameter("countryImageFolder");
+        if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
+            // So, we're rendering the view. Return a stub StreamedContent so that it will generate right URL.
+            return new DefaultStreamedContent();
+        } else {
+            // So, browser is requesting the image. Return a real StreamedContent with the image bytes.
+            String filename = context.getExternalContext().getRequestParameterMap().get("filename");
+            if (filename == null || filename.equals("")) {
+                filename = "noImage.png";
+            }
+            return new DefaultStreamedContent(new FileInputStream(new File(countryImageFolder, filename)));
+        }
+    }
 
 }
