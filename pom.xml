@@ -108,7 +108,7 @@
     </dependencies>
 	
     <build>
-        <finalName>LOI2016</finalName>
+        <finalName>diesel2016</finalName>
 		
         <plugins>
             <plugin>
