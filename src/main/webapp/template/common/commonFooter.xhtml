@@ -10,13 +10,13 @@
     <h:body>
         <ui:composition>
             <h:form id="formFooter" style='border-style: hidden !important; margin: 0 auto'>
-                <p:menubar>
+                <p:menubar style="color: lightgrey;">
                     <p:menuitem value="Pocetna" icon="fa fa-home" actionListener="#{frontCont.dispatchRequest('index')}"/>
-                    <p:menuitem value="O nama" icon="fa fa-info-circle" actionListener="#{frontCont.dispatchRequest('onama')}"/>
+                    <p:menuitem value="O nama" icon="fa fa-info-circle" actionListener="#{frontCont.dispatchRequest('oNama')}"/>
                     <p:menuitem value="Kontakt" icon="fa fa-phone-square" actionListener="#{frontCont.dispatchRequest('kontakt')}" />
-                    <p:menuitem style="position: absolute; right:14%" icon="fa fa-facebook-official" />
-                    <p:menuitem style="position: absolute; right: 7%" icon="fa fa-instagram" />
-                    <p:menuitem style="position: absolute; right: 1%" icon="fa fa-youtube" />
+                    <p:menuitem style="position: absolute; right:14%" icon="fa fa-facebook-official" url="https://www.facebook.com" target="_blank" />
+                    <p:menuitem style="position: absolute; right: 7%" icon="fa fa-instagram" url="https://www.instagram.com" target="_blank" />
+                    <p:menuitem style="position: absolute; right: 1%" icon="fa fa-youtube" url="https://www.youtube.com" target="_blank" />
                 </p:menubar>    
             </h:form>
         </ui:composition>

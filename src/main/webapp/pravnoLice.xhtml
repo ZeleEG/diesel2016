@@ -7,64 +7,46 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Pravno lice</title>
+        <style type="text/css">
+            h3, h5 {
+                display: inline;
+            }
+        </style>
     </h:head>
     <h:body>
 
         <ui:composition template="/template/common/commonLayout.xhtml">
 
             <ui:define name="content">
-                <p:panelGrid columns="3" layout="grid">
-                    <h:outputText style="font-weight: bold;" value="Pravno lice" />
-                    <h:outputText style="font-weight: bold;" value="Cena" />
-                    <h:outputText style="font-weight: bold;" value="Slike" />
-                    <p:panelGrid columns="2" layout="grid">
-                        <f:facet name="slika">
-                            <p:graphicImage name="" />
-                        </f:facet>
+                <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6"  layout="grid">
+                    <p:panel>
+                        <h2 style="color: red;">Tk. Gemax</h2>
+                        <h3 style="font-weight: normal;"><b>Adresa:</b> Banjicki venac 28b, Vozdovac, Beograd</h3>
+                        <h3 style="font-weight: normal;"><b>Kontakt:</b> 011/2540592</h3>
+                        <h3 style="font-weight: normal; margin-left: 12.5%">064/28-88-478</h3>
+                        <h3 style="font-weight: normal;"><b>Radno vreme:</b> Pon-Pet: 7:30-22:30</h3>
+                        <h3 style="font-weight: normal; margin-left: 20%">Sub: 7:30-22:30</h3>
+                        <h3 style="font-weight: normal; margin-left: 20%">Ned: 7:30-22:30</h3>
+                        <h3 style="font-weight: normal;"><b>Sajt:</b><a style="text-decoration: none;" target="_blank" href="https://www.gemax.rs"> www.gemax.rs</a></h3>
+                        <h3 style="font-weight: normal;"><b>E-mail:</b> tenisklub@gemax.rs</h3>
+                        <h3>Opis: </h3>
+                        <p>U Beogradu je od 22. do 27. avgusta održan međunarodni teniski turnir „8. teniske nade“ za devojčice i dečake do 9, 11 i 13 godina, izborni turnir za svetsko finale Champions Bowl, koje će se odigrati od 30. septembra do 2. oktobra 2016. na Majorki u Španiji. Turnir je nivoa Masters Champions Bowl za Srbiju, Crnu Goru, Makedoniju i Republiku Srpsku. Finalisti u obe konkurencije su se plasirali na finalni turnir u Španiji.</p>
+                        <h3>Cenovnik</h3>
+                        <p:graphicImage height="100%" width="100%" name="img/Cena.jpg" />
+                    </p:panel>
+                    <p:panel style="height: 100%; width:100%" header="Slike">
+                        <p:commandButton type="button" onclick="PF('switcher').previous();"
+                                         icon="ui-icon-circle-triangle-w" id="prev"/>
+                        <p:commandButton type="button" onclick="PF('switcher').next();"
+                                         icon="ui-icon-circle-triangle-e" id="next"/>
 
-                        <h:outputText value="Ime i prezime" />
-                        <h:outputText value="" />
-
-                        <h:outputText value="Adresa" />
-                        <h:outputText value="" />
-
-                        <h:outputText value="Opstina" />
-                        <h:outputText value="" />
-
-                        <h:outputText value="Grad" />
-                        <h:outputText value="" />
-
-                        <h:outputText value="Stablni telefon 1" />
-                        <h:outputText value="" />
-
-                        <h:outputText value="Stablni telefon 2" />
-                        <h:outputText value="" />
-
-                        <h:outputText value="Mobilni telefon 1" />
-                        <h:outputText value="" />
-
-                        <h:outputText value="Mobilni telefon 2" />
-                        <h:outputText value="" />
-
-                        <h:outputText value="Sajt" />
-                        <h:outputText value="" />
-
-                        <h:outputText value="Facebook" />
-                        <h:outputText value="" />
-
-                        <h:outputText value="Instagram" />
-                        <h:outputText value="" />
-
-                        <h:outputText value="Radi od" />
-                        <h:outputText value="" />
-
-                        <h:outputText value="Radi do" />
-                        <h:outputText value="" />
-                    </p:panelGrid>
-                    <p:graphicImage height="100%" width="100%" name="img/Cena.jpg" />
-                    <p:contentFlow style="height: 100%; width: 100%" value="#{imagesView.images}" var="image">
-                        <p:graphicImage name="img/pravnaLica/#{image}" styleClass="content" />
-                    </p:contentFlow>
+                        <p:imageSwitch style="height: 100%; width:100%" effect="wipe" widgetVar="switcher" id="manuelSwitcher"
+                                       slideshowAuto="true">
+                            <ui:repeat value="#{imagesView.images}" var="image" id="manuelSwitcherImages">
+                                <p:graphicImage style="height: 10%; width:100%" name="img/pravnaLica/#{image}" id="image"/>
+                            </ui:repeat>
+                        </p:imageSwitch>                        
+                    </p:panel>
                 </p:panelGrid>
             </ui:define>
 
@@ -72,3 +54,6 @@
 
     </h:body>
 </html>
+
+<!-- <p:panelGrid columns="3" layout="grid" > -->
+<!--</p:panelGrid>-->
