@@ -67,6 +67,16 @@ public class LegalEntity implements Serializable {
     private Time openTime;
     @Column(name = "close_time")
     private Time closeTime;
+    @Column(name = "youtube_profile")
+    private String youtubeProfile;
+
+    public String getYoutubeProfile() {
+        return youtubeProfile;
+    }
+
+    public void setYoutubeProfile(String youtubeProfile) {
+        this.youtubeProfile = youtubeProfile;
+    }
 
     public User getUser() {
         return user;
