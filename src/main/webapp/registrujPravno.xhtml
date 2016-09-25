@@ -92,7 +92,7 @@
                         <p:tab id="tabWorkHours" title="Radno vreme">
                             <p:panel header="Informacije o radnom vremenu">
                                 <p:panelGrid columns="2" columnClasses="label, value">
-                                    <p:outputLabel for="timeOpen" value="PoÄ�etak radnog vremena: " />
+                                    <p:outputLabel for="timeOpen" value="Pocetak radnog vremena: " />
                                     <p:calendar id="timeOpen" value="#{regCont.newLegalEntity.openTime}" pattern="HH:mm" timeOnly="true" required='true' requiredMessage='Molimo Vas da unesete vreme kada poÄ�inje VaÅ¡e radno vreme!'  />
 
                                     <p:outputLabel for="timeClose" value="Kraj radnog vremena: " />
@@ -101,8 +101,8 @@
                             </p:panel>
                         </p:tab>
 
-                        <p:tab id="tabSocial" title="DruÅ¡tvene mreÅ¾e">
-                            <p:panel header="Informacije o druÅ¡tvenim mreÅ¾ama">
+                        <p:tab id="tabSocial" title="Drustvene mreze">
+                            <p:panel header="Informacije o drustvenim mrezama">
                                 <p:panelGrid columns="2" columnClasses="label, value">
                                     <h:outputText value="Facebook stranica: " />
                                     <p:inputText value="#{regCont.newLegalEntity.facebookProfile}" />
@@ -112,6 +112,9 @@
 
                                     <h:outputText value="Veb stranica: " />
                                     <p:inputText value="#{regCont.newLegalEntity.website}" />
+                                    
+                                    <h:outputText value="YouTube stranica: " />
+                                    <p:inputText value="#{regCont.newLegalEntity.youtube}" />
                                 </p:panelGrid>
 
                                 <p:commandButton value="Registruj" validateClient="true" actionListener="#{regCont.registerLegal}" update="growlRegisterLegal"/>
