@@ -45,7 +45,7 @@ public class Dispatcher {
         try {
             switch (request.toLowerCase()) {
                 case "onama":
-                    context.redirect("onama.xhtml");
+                    context.redirect("oNama.xhtml");
                     break;
                 case "kontakt":
                     context.redirect("kontakt.xhtml");
