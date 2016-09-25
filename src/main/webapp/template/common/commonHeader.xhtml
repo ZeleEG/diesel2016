@@ -6,17 +6,20 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
-    <body>
+    <h:head>
+        
+    </h:head>
+    <h:body>
         <ui:composition>
             <h:form id = "formHeader">
                 <p:menubar>
-                    <p:menuitem value="Prijava" />
+                    <p:menuitem value="Prijava" actionListener="#{frontCont.dispatchRequest('login')}" />
                     <p:submenu label="Registracija">
-                        <p:menuitem value="Pravno lice" />
-                        <p:menuitem value="Fizicko lice" />
+                        <p:menuitem value="Pravno lice" actionListener="#{frontCont.dispatchRequest('registrujpravno')}"/>
+                        <p:menuitem value="Fizicko lice" actionListener="#{frontCont.dispatchRequest('registrujfizicko')}" />
                     </p:submenu>
                 </p:menubar>
             </h:form>
         </ui:composition>
-    </body>
+    </h:body>
 </html>

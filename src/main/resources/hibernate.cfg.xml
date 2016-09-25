@@ -8,5 +8,7 @@
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password"/>
     <!-- List of XML mapping files -->
+    <mapping class="com.pulsiraj.beans.City"/>
+    <mapping class="com.pulsiraj.beans.Municipality"/>
   </session-factory>
 </hibernate-configuration>

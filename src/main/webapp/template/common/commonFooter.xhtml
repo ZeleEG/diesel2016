@@ -11,9 +11,9 @@
         <ui:composition>
             <h:form id="formFooter" style='border-style: hidden !important; margin: 0 auto'>
                 <p:menubar>
-                    <p:menuitem value="PoÄ�etna" icon="fa fa-home" actionListener="#{frontCont.dispatchRequest('index')}"/>
-                    <p:menuitem value="O nama" icon="fa fa-info-circle"/>
-                    <p:menuitem value="Kontakt" icon="fa fa-phone-square" />
+                    <p:menuitem value="Pocetna" icon="fa fa-home" actionListener="#{frontCont.dispatchRequest('index')}"/>
+                    <p:menuitem value="O nama" icon="fa fa-info-circle" actionListener="#{frontCont.dispatchRequest('onama')}"/>
+                    <p:menuitem value="Kontakt" icon="fa fa-phone-square" actionListener="#{frontCont.dispatchRequest('kontakt')}" />
                     <p:menuitem style="position: absolute; right:14%" icon="fa fa-facebook-official" />
                     <p:menuitem style="position: absolute; right: 7%" icon="fa fa-instagram" />
                     <p:menuitem style="position: absolute; right: 1%" icon="fa fa-youtube" />

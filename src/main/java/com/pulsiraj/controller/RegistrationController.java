@@ -19,6 +19,8 @@ package com.pulsiraj.controller;
 import com.pulsiraj.beans.LegalEntity;
 import com.pulsiraj.beans.PhysicalEntity;
 import com.pulsiraj.beans.User;
+import com.pulsiraj.dao.object.LegalEntityDAO;
+import com.pulsiraj.dao.object.UserDAO;
 import com.pulsiraj.security.Passwords;
 import java.io.Serializable;
 import java.security.NoSuchAlgorithmException;
@@ -29,6 +31,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 import org.primefaces.context.RequestContext;
+import org.primefaces.event.FlowEvent;
 
 /**
  *
@@ -51,6 +54,28 @@ public class RegistrationController implements Serializable {
         newUser.setSalt(salt);
         newUser.setPasswordHash(Passwords.getHashWithSalt(password, salt));
         password = passwordConfirm = "";
+    }
+
+    public String legalOnFlowProcess(FlowEvent event) {
+        switch (event.getOldStep()) {
+            case "tabUser":
+
+                break;
+            case "tabLegal":
+
+                break;
+            case "tabLocation":
+
+                break;
+            case "tabWorkHours":
+
+                break;
+            case "tabSocial":
+
+                break;
+        }
+
+        return event.getNewStep();
     }
 
     public User getNewUser() {
@@ -110,8 +135,43 @@ public class RegistrationController implements Serializable {
             FacesContext.getCurrentInstance().validationFailed();
             return;
         }
-        
+
         addSuccessMessage("Success!", "User created successfully!");
+        new FrontController().dispatchRequest("index");
+    }
+
+    public void registerLegal() {
+        if (!passwordConfirm.equals(password)) {
+            addFailureMessage("Error!", "Password missmatch!");
+            password = passwordConfirm = "";
+            FacesContext.getCurrentInstance().validationFailed();
+            return;
+        }
+        newUser.setUserType("legal");
+        try {
+            hashPassword();
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        UserDAO dao = new UserDAO();
+        if (dao.createEntity(newUser) != null) {
+            newLegalEntity.setUser(newUser);
+            LegalEntityDAO lDao = new LegalEntityDAO();
+            if (lDao.createWeakEntity(newLegalEntity) != null) {
+                addSuccessMessage(password, password);
+            } else {
+                dao.deleteEntity(newUser);
+                addFailureMessage("Error!", "Error accessing database!");
+                FacesContext.getCurrentInstance().validationFailed();
+                return;
+            }
+        } else {
+            addFailureMessage("Error!", "Error creating user!");
+            FacesContext.getCurrentInstance().validationFailed();
+            return;
+        }
+
+        addSuccessMessage("Success!", "Prospect created successfully!");
         new FrontController().dispatchRequest("index");
     }
 
