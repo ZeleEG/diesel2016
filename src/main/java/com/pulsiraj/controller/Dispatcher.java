@@ -60,7 +60,7 @@ public class Dispatcher {
                     }
                 case "registrujpravno":
                     if (userType.equals("unregisteredUser") && request.equalsIgnoreCase("registrujpravno")) {
-                        context.redirect("register.xhtml");
+                        context.redirect("registrujPravno.xhtml");
                         break;
                     }
                 case "login":
