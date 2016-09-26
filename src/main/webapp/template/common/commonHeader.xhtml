@@ -12,7 +12,7 @@
     <h:body>
         <ui:composition>
             <h:form id = "formHeader">
-                <p:menubar style="color: lightgrey">
+                <p:menubar style="z-index: 10; color: lightgrey; position: fixed; top: 0; width: 97%">
                     <p:menuitem value="Prijava" actionListener="#{frontCont.dispatchRequest('login')}" />
                     <p:submenu label="Registracija">
                         <p:menuitem value="Pravno lice" actionListener="#{frontCont.dispatchRequest('registrujpravno')}"/>

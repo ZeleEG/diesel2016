@@ -10,7 +10,7 @@
     <h:body>
         <ui:composition>
             <h:form id="formFooter" style='border-style: hidden !important; margin: 0 auto'>
-                <p:menubar style="color: lightgrey;">
+                <p:menubar style="color: lightgrey; position: fixed; bottom: 0; width: 97%" >
                     <p:menuitem value="Pocetna" icon="fa fa-home" actionListener="#{frontCont.dispatchRequest('index')}"/>
                     <p:menuitem value="O nama" icon="fa fa-info-circle" actionListener="#{frontCont.dispatchRequest('oNama')}"/>
                     <p:menuitem value="Kontakt" icon="fa fa-phone-square" actionListener="#{frontCont.dispatchRequest('kontakt')}" />
