@@ -7,6 +7,11 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Pravno lice</title>
+        <style type="text/css">
+            .panelGrid1 table{
+                border: 0;
+            }
+        </style>
     </h:head>
     <h:body>
 
@@ -14,31 +19,34 @@
 
             <ui:define name="content">
                 <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6"  layout="grid">
-                    <p:panel>
-                        <h2 style="color: red;">Tk. Gemax</h2>
+                    <p:panel style="border: 0;">
+                        <h2 style="color: red; display: inline">Tk. Gemax</h2>
+                        <p:commandButton style="display: inline; margin-top: 0.5%; margin-left: 58%" 
+                                         type="button" onclick=""
+                                         icon="fa fa-star" value="Rezervisi" />
                         <h3 style="font-weight: normal;"><b>Adresa:</b> Banjicki venac 28b, Vozdovac, Beograd</h3>
                         <h3 style="font-weight: normal;"><b>Kontakt:</b> 011/2540592</h3>
                         <h3 style="font-weight: normal; margin-left: 12.5%">064/28-88-478</h3>
                         <h3 style="font-weight: normal;"><b>Radno vreme:</b> Pon-Pet: 7:30-22:30</h3>
-                        <h3 style="font-weight: normal; margin-left: 20%">Sub: 7:30-22:30</h3>
-                        <h3 style="font-weight: normal; margin-left: 20%">Ned: 7:30-22:30</h3>
+                        <h3 style="font-weight: normal; margin-left: 21.5%">Sub: 7:30-22:30</h3>
+                        <h3 style="font-weight: normal; margin-left: 21.5%">Ned: 7:30-22:30</h3>
                         <h3 style="font-weight: normal;"><b>Sajt:</b><a style="text-decoration: none;" target="_blank" href="https://www.gemax.rs"> www.gemax.rs</a></h3>
                         <h3 style="font-weight: normal;"><b>E-mail:</b> tenisklub@gemax.rs</h3>
                         <h3>Opis: </h3>
-                        <p>U prvom kolu Dejvis kupa Svetske grupe 2017. NIS Dejvis kup tim Srbije odmeriće 
+                        <p>U prvom kolu Dejvis kupa Svetske grupe 2017. NIS Dejvis kup tim Srbije odmerice 
                             snage sa selekcijom Rusije od 03. do 05. februara u Srbiji. Ukoliko Srbija pobedi 
-                            Rusiju,  u četvrtfinalu snage će odmeriti sa pobednikom susreta Hrvatska - Španija. 
-                            Tako je odlučeno na žrebu koji je održan danas (četvrtak 22.09.2016) 
+                            Rusiju,  u cetvrtfinalu snage ce odmeriti sa pobednikom susreta Hrvatska - Spanija. 
+                            Tako je odluceno na zrebu koji je odrzan danas (cetvrtak 22.09.2016) 
                             u Londonu..</p>
                     </p:panel>
-                    <p:panel style="height: 100%; width:100%">
+                    <p:panel style="height: 100%; width:100%; border: 0;">
                         <p:commandButton type="button" onclick="PF('switcher').previous();"
                                          icon="ui-icon-circle-triangle-w" id="prev"/>
                         <p:commandButton type="button" onclick="PF('switcher').next();"
                                          icon="ui-icon-circle-triangle-e" id="next"/>
                         <p:hotkey bind="left" handler="PF('switcher').previous();" />
                         <p:hotkey bind="right" handler="PF('switcher').next();" />
-                        <p:imageSwitch style="height: 100%; width:100%" effect="" widgetVar="switcher" id="manuelSwitcher"
+                        <p:imageSwitch style="height: 100%; width:100%" effect="fade" widgetVar="switcher" id="manuelSwitcher"
                                        slideshowAuto="true">
                             <ui:repeat value="#{imagesView.images}" var="image" id="manuelSwitcherImages">
                                 <p:graphicImage style="height: 100%; width:100%" name="img/pravnaLica/#{image}" id="image"/>
