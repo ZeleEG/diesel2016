@@ -8,15 +8,22 @@
     <h:body>
         <ui:composition template="/template/common/commonLayout.xhtml">
             <ui:define name="content">
-                <p:panelGrid columns="2" layout="grid">
-                    <p:graphicImage height="100%" width="100%" name="img/sportovi/Fudbal1.jpg" />
-                    <p:graphicImage height="100%" width="100%" name="img/sportovi/Joga1.jpg" />
+                <p:panelGrid style="box-shadow: 0 0 50px 3px rgba(0, 0, 0, .5);
+                             margin-top: 5%" columns="2" layout="grid">
+                    <p:graphicImage style="box-shadow: 0 0 50px 3px rgba(0, 0, 0, .5);"
+                                    height="100%" width="100%" name="img/sportovi/Fudbal1.jpg" />
+                    <p:graphicImage style="box-shadow: 0 0 50px 3px rgba(0, 0, 0, .5);"
+                                    height="100%" width="100%" name="img/sportovi/Joga1.jpg" />
                     <p:commandLink style="text-decoration: none;" actionListener="#{frontCont.dispatchRequest('listapravnihlica')}">
-                        <p:graphicImage height="100%" width="100%" name="img/sportovi/Tenis1.jpg" />
+                        <p:graphicImage style="box-shadow: 0 0 50px 3px rgba(0, 0, 0, .5);"
+                                    height="100%" width="100%" name="img/sportovi/Tenis1.jpg" />
                     </p:commandLink>
-                    <p:graphicImage height="100%" width="100%" name="img/sportovi/Kosarka1.jpg" />
-                    <p:graphicImage height="100%" width="100%" name="img/sportovi/Soccer1.jpg" />
-                    <p:graphicImage height="100%" width="100%" name="img/Zabava1.jpg" />
+                    <p:graphicImage style="box-shadow: 0 0 50px 3px rgba(0, 0, 0, .5);"
+                                    height="100%" width="100%" name="img/sportovi/Kosarka1.jpg" />
+                    <p:graphicImage style="box-shadow: 0 0 50px 3px rgba(0, 0, 0, .5);"
+                                    height="100%" width="100%" name="img/sportovi/Soccer1.jpg" />
+                    <p:graphicImage style="box-shadow: 0 0 50px 3px rgba(0, 0, 0, .5);"
+                                    height="100%" width="100%" name="img/Zabava1.jpg" />
                 </p:panelGrid>
             </ui:define>
         </ui:composition>

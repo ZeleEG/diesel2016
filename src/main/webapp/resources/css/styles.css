@@ -1,0 +1,5 @@
+table, td, tr {
+    color: #d5d5d5;
+    table-layout: auto;
+    height: 1500px;
+}

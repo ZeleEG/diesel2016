@@ -13,10 +13,10 @@
         <ui:composition>
             <h:form id = "formHeader">
                 <p:menubar style="z-index: 10; color: lightgrey; position: fixed; top: 0; width: 97%">
-                    <p:menuitem value="Prijava" actionListener="#{frontCont.dispatchRequest('login')}" />
-                    <p:submenu label="Registracija">
-                        <p:menuitem value="Pravno lice" actionListener="#{frontCont.dispatchRequest('registrujpravno')}"/>
-                        <p:menuitem value="Fizicko lice" actionListener="#{frontCont.dispatchRequest('registrujfizicko')}" />
+                    <p:menuitem icon="fa fa-user" value="Prijava" actionListener="#{frontCont.dispatchRequest('login')}" />
+                    <p:submenu icon="fa fa-user-plus" label="&nbsp;Registracija">
+                        <p:menuitem icon="fa fa-caret-right" value="Pravno lice" actionListener="#{frontCont.dispatchRequest('registrujpravno')}"/>
+                        <p:menuitem icon="fa fa-caret-right" value="Fizicko lice" actionListener="#{frontCont.dispatchRequest('registrujfizicko')}" />
                     </p:submenu>
                 </p:menubar>
             </h:form>
