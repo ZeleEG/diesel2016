@@ -44,6 +44,15 @@ public class Dispatcher {
         }
         try {
             switch (request.toLowerCase()) {
+                case "listapravnihlica":
+                    context.redirect("listaPravnihLica.xhtml");
+                    break;
+                case "pravnolice":
+                    context.redirect("pravnoLice.xhtml");
+                    break;
+                case "listasportova":
+                    context.redirect("listaSportova.xhtml");
+                    break;
                 case "onama":
                     context.redirect("oNama.xhtml");
                     break;

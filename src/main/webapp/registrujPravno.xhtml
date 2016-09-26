@@ -21,16 +21,16 @@
                                 <p:messages />
                                 <p:panelGrid columns="2" layout="grid" columnClasses="label, value">
                                     <h:outputText value="Username: " />
-                                    <p:inputText id="uname" value="#{regCont.newUser.userName}" required="true" requiredMessage="Molimo Vas da uneste VaÅ¡e korisniÄ�ko ime!" />
+                                    <p:inputText id="uname" value="#{regCont.newUser.userName}" required="true" requiredMessage="Molimo Vas da uneste VaÃ…Â¡e korisniÃ„ï¿½ko ime!" />
 
                                     <h:outputText value="Password: " />
-                                    <p:password id="psw1" value="#{regCont.password}" required="true" feedback="true" requiredMessage="Molimo Vas da unesete VaÅ¡u Å¡ifru!" />
+                                    <p:password id="psw1" value="#{regCont.password}" required="true" feedback="true" requiredMessage="Molimo Vas da unesete VaÃ…Â¡u Ã…Â¡ifru!" />
 
                                     <h:outputText value="Confirm password: " />
-                                    <p:password id="psw2" value="#{regCont.passwordConfirm}" required="true" requiredMessage="Molimo Vas da potvrdite VaÅ¡u Å¡ifru!" />
+                                    <p:password id="psw2" value="#{regCont.passwordConfirm}" required="true" requiredMessage="Molimo Vas da potvrdite VaÃ…Â¡u Ã…Â¡ifru!" />
 
                                     <h:outputText value="E-mail " />
-                                    <p:inputText id="email" value="#{regCont.newUser.email}" required="true" requiredMessage="Molimo Vas da uneste VaÅ¡ e-mail!" validatorMessage="Uneli ste neispravan e-mail!" >
+                                    <p:inputText id="email" value="#{regCont.newUser.email}" required="true" requiredMessage="Molimo Vas da uneste VaÃ…Â¡ e-mail!" validatorMessage="Uneli ste neispravan e-mail!" >
                                         <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />       
                                     </p:inputText>
                                 </p:panelGrid>
@@ -73,9 +73,9 @@
                                         </p:column>
                                     </p:selectOneMenu>
 
-                                    <p:outputLabel for="selMunicipality" value="Opština: " />
+                                    <p:outputLabel for="selMunicipality" value="OpÅ¡tina: " />
                                     <p:selectOneMenu var='m' id="selMunicipality" value="#{regCont.newPhysicalEntity.city}" 
-                                                     required="true" requiredMessage="Molimo Vas da izaberete opštinu!" converter="municipalityConverter">
+                                                      converter="municipalityConverter">
                                         <f:selectItems var='municipality' value="#{municipalityCont.municipalityList}" itemLabel='#{municipality.name}' itemValue="#{municipality}" />
 
                                         <p:column>
@@ -84,7 +84,7 @@
                                     </p:selectOneMenu>
 
                                     <h:outputText value="Adresa: " />
-                                    <p:inputText value="#{regCont.newLegalEntity.address}" required="true" requiredMessage="Molimo Vas da uneste VaÅ¡u adresu!"/>
+                                    <p:inputText value="#{regCont.newLegalEntity.address}" required="true" requiredMessage="Molimo Vas da uneste VaÃ…Â¡u adresu!"/>
                                 </p:panelGrid>
                             </p:panel>
                         </p:tab>
@@ -93,10 +93,10 @@
                             <p:panel header="Informacije o radnom vremenu">
                                 <p:panelGrid columns="2" columnClasses="label, value">
                                     <p:outputLabel for="timeOpen" value="Pocetak radnog vremena: " />
-                                    <p:calendar id="timeOpen" value="#{regCont.newLegalEntity.openTime}" pattern="HH:mm" timeOnly="true" required='true' requiredMessage='Molimo Vas da unesete vreme kada poÄ�inje VaÅ¡e radno vreme!'  />
+                                    <p:calendar id="timeOpen" value="#{regCont.newLegalEntity.openTime}" pattern="HH:mm" timeOnly="true" mask="true" required='true' requiredMessage='Molimo Vas da unesete vreme kada poÃ„ï¿½inje VaÃ…Â¡e radno vreme!'  />
 
                                     <p:outputLabel for="timeClose" value="Kraj radnog vremena: " />
-                                    <p:calendar id="timeClose" value="#{regCont.newLegalEntity.closeTime}" pattern="HH:mm" timeOnly="true"  required="true" requiredMessage="Molimo Vas da unesete vreme kada zavrÅ¡ava VaÅ¡e radno vreme!"  />
+                                    <p:calendar id="timeClose" value="#{regCont.newLegalEntity.closeTime}" pattern="HH:mm" timeOnly="true" mask="true" required="true" requiredMessage="Molimo Vas da unesete vreme kada zavrÃ…Â¡ava VaÃ…Â¡e radno vreme!"  />
                                 </p:panelGrid>
                             </p:panel>
                         </p:tab>
@@ -114,7 +114,7 @@
                                     <p:inputText value="#{regCont.newLegalEntity.website}" />
                                     
                                     <h:outputText value="YouTube stranica: " />
-                                    <p:inputText value="#{regCont.newLegalEntity.youtube}" />
+                                    <p:inputText value="#{regCont.newLegalEntity.youtubeProfile}" />
                                 </p:panelGrid>
 
                                 <p:commandButton value="Registruj" validateClient="true" actionListener="#{regCont.registerLegal}" update="growlRegisterLegal"/>

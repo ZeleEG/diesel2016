@@ -11,7 +11,9 @@
                 <p:panelGrid columns="2" layout="grid">
                     <p:graphicImage height="100%" width="100%" name="img/sportovi/Fudbal1.jpg" />
                     <p:graphicImage height="100%" width="100%" name="img/sportovi/Joga1.jpg" />
-                    <p:graphicImage height="100%" width="100%" name="img/sportovi/Tenis1.jpg" />
+                    <p:commandLink style="text-decoration: none;" actionListener="#{frontCont.dispatchRequest('listapravnihlica')}">
+                        <p:graphicImage height="100%" width="100%" name="img/sportovi/Tenis1.jpg" />
+                    </p:commandLink>
                     <p:graphicImage height="100%" width="100%" name="img/sportovi/Kosarka1.jpg" />
                     <p:graphicImage height="100%" width="100%" name="img/sportovi/Soccer1.jpg" />
                     <p:graphicImage height="100%" width="100%" name="img/Zabava1.jpg" />

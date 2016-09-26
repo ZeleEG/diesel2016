@@ -16,7 +16,9 @@
  */
 package com.pulsiraj.controller;
 
+import com.pulsiraj.beans.City;
 import com.pulsiraj.beans.LegalEntity;
+import com.pulsiraj.beans.Municipality;
 import com.pulsiraj.beans.PhysicalEntity;
 import com.pulsiraj.beans.User;
 import com.pulsiraj.dao.object.LegalEntityDAO;
@@ -24,8 +26,10 @@ import com.pulsiraj.dao.object.UserDAO;
 import com.pulsiraj.security.Passwords;
 import java.io.Serializable;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -46,6 +50,10 @@ public class RegistrationController implements Serializable {
     private LegalEntity newLegalEntity;
     @ManagedProperty(value = "#{physicalEntity}")
     private PhysicalEntity newPhysicalEntity;
+    @ManagedProperty(value = "#{cityCont}")
+    private CityController cityController;
+    @ManagedProperty(value = "#{municipalityCont}")
+    private MunicipalityController municipalityController;
     private String password;
     private String passwordConfirm;
 
@@ -54,6 +62,31 @@ public class RegistrationController implements Serializable {
         newUser.setSalt(salt);
         newUser.setPasswordHash(Passwords.getHashWithSalt(password, salt));
         password = passwordConfirm = "";
+    }
+
+    @PostConstruct
+    public void init() {
+        List<City> cities = cityController.cityList;
+        if (cities != null && !cities.isEmpty()) {
+            City selectedCity = cities.get(0);
+            municipalityController.listMunicipalitiesForCountry(selectedCity.getC_id());
+        }
+    }
+
+    public CityController getCityController() {
+        return cityController;
+    }
+
+    public void setCityController(CityController cityController) {
+        this.cityController = cityController;
+    }
+
+    public MunicipalityController getMunicipalityController() {
+        return municipalityController;
+    }
+
+    public void setMunicipalityCont(MunicipalityController municipalityControler) {
+        this.municipalityController = municipalityController;
     }
 
     public String legalOnFlowProcess(FlowEvent event) {

@@ -7,11 +7,6 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Pravno lice</title>
-        <style type="text/css">
-            h3, h5 {
-                display: inline;
-            }
-        </style>
     </h:head>
     <h:body>
 
@@ -30,15 +25,20 @@
                         <h3 style="font-weight: normal;"><b>Sajt:</b><a style="text-decoration: none;" target="_blank" href="https://www.gemax.rs"> www.gemax.rs</a></h3>
                         <h3 style="font-weight: normal;"><b>E-mail:</b> tenisklub@gemax.rs</h3>
                         <h3>Opis: </h3>
-                        <p>U Beogradu je od 22. do 27. avgusta održan međunarodni teniski turnir „8. teniske nade“ za devojčice i dečake do 9, 11 i 13 godina, izborni turnir za svetsko finale Champions Bowl, koje će se odigrati od 30. septembra do 2. oktobra 2016. na Majorki u Španiji. Turnir je nivoa Masters Champions Bowl za Srbiju, Crnu Goru, Makedoniju i Republiku Srpsku. Finalisti u obe konkurencije su se plasirali na finalni turnir u Španiji.</p>
+                        <p>U prvom kolu Dejvis kupa Svetske grupe 2017. NIS Dejvis kup tim Srbije odmeriće 
+                            snage sa selekcijom Rusije od 03. do 05. februara u Srbiji. Ukoliko Srbija pobedi 
+                            Rusiju,  u četvrtfinalu snage će odmeriti sa pobednikom susreta Hrvatska - Španija. 
+                            Tako je odlučeno na žrebu koji je održan danas (četvrtak 22.09.2016) 
+                            u Londonu..</p>
                     </p:panel>
-                    <p:panel style="height: 100%; width:100%" header="Slike">
+                    <p:panel style="height: 100%; width:100%">
                         <p:commandButton type="button" onclick="PF('switcher').previous();"
                                          icon="ui-icon-circle-triangle-w" id="prev"/>
                         <p:commandButton type="button" onclick="PF('switcher').next();"
                                          icon="ui-icon-circle-triangle-e" id="next"/>
-
-                        <p:imageSwitch style="height: 100%; width:100%" effect="wipe" widgetVar="switcher" id="manuelSwitcher"
+                        <p:hotkey bind="left" handler="PF('switcher').previous();" />
+                        <p:hotkey bind="right" handler="PF('switcher').next();" />
+                        <p:imageSwitch style="height: 100%; width:100%" effect="" widgetVar="switcher" id="manuelSwitcher"
                                        slideshowAuto="true">
                             <ui:repeat value="#{imagesView.images}" var="image" id="manuelSwitcherImages">
                                 <p:graphicImage style="height: 100%; width:100%" name="img/pravnaLica/#{image}" id="image"/>
