@@ -24,7 +24,7 @@ public class ImagesView {
     public void init() {
         images = new ArrayList<>();
         for (int i = 1; i <= 5; i++) {
-            images.add("Image" + i + ".jpg");
+            images.add("Photo" + i + ".jpg");
         }
     }
 
